@@ -6,6 +6,7 @@ import { IEmployeeService } from '@domain/abstraction/employes/IEmployeeService'
 import { validate } from 'class-validator';
 import { Request, Response } from 'express';
 import { plainToClass } from 'class-transformer';
+import logger from '@infrastructure/config/logger';
 
 @JsonController('/employees')
 @injectable()
@@ -32,9 +33,8 @@ class EmployeeController {
       }
       return employee;
     } catch (error) {
-      console.log(error)
       if (error instanceof Error) {
-      return response.status(404).json({message:'Employee not found',error:error.message});
+      return response.status(500).json({message:'Error lors de la creation employee',error:error.message});
       }
     }
   }
@@ -46,7 +46,8 @@ class EmployeeController {
     const errors = await validate(employee);
 
     if (errors.length > 0) {
-      console.log('error de validation')
+      const allErrors = errors.map(error=>error.constraints)
+      logger.error(allErrors)
       return response.status(400).json(errors.map(error => error.constraints));
     }
     try {
@@ -55,7 +56,6 @@ class EmployeeController {
       return response.status(201).json(employeeCreated); // Supposons que "employee" est  créé
     } catch (error) {
       if (error instanceof Error) {
-        console.error(error);
         return response.status(500).json({ message: 'Erreur serveur lors de la création de l\'employé', error: error.message });
       }
     }

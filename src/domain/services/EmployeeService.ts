@@ -2,6 +2,7 @@ import { IEmployeeRepository } from "@domain/abstraction/employes/IEmployeeRepos
 import { IEmployeeService } from "@domain/abstraction/employes/IEmployeeService";
 import { EmployeeDto } from "@domain/dtos/EmployeeDto";
 import { Employee } from "@domain/models/Employee";
+import logger from "@infrastructure/config/logger";
 import { injectable, inject } from 'inversify';
 
 @injectable()
@@ -39,6 +40,7 @@ export class EmployeeService implements IEmployeeService {
     async createEmployee(employeeDto: EmployeeDto): Promise<Employee> {
         const existingEmployee = await this.employeeRepository.getEmployeeByEmail(employeeDto.email)
         if (existingEmployee) {
+            logger.error('Employee already exist.');
             throw new Error('Employee already exist.');
         }
         try {

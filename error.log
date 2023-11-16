@@ -1,0 +1,12 @@
+{"level":"error","message":"Employee already exist."}
+{"level":"error","message":"Employee already exist."}
+{"level":"\u001b[31merror\u001b[39m","message":"Employee already exist."}
+{"level":"\u001b[31merror\u001b[39m","message":"   Employee already exist."}
+{"0":{"minLength":"Le prénom doit contenir au moins 3 caractères"},"level":"error","message":"error de validation"}
+{"level":"error","message":[{"minLength":"Le prénom doit contenir au moins 3 caractères"},{"minLength":"Le nom doit contenir au moins 3 caractères"}]}
+{"level":"error","message":"Employee already exist."}
+2023-11-16T11:47:47.957Z [[31merror[39m]: Employee already exist.
+undefined
+undefined
+undefined
+undefined

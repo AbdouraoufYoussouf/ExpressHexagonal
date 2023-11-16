@@ -4,3 +4,15 @@
 {"level":"info","message":"[2023-11-15T12:22:20.250Z] PUT /api/employees/"}
 {"level":"info","message":"[2023-11-15T12:22:59.925Z] PUT /api/employees/65549b68fe92444d4b572ea1"}
 {"level":"info","message":"[2023-11-15T12:23:29.677Z] GET /api/employees"}
+{"level":"error","message":"Employee already exist."}
+{"level":"error","message":"Employee already exist."}
+{"level":"\u001b[31merror\u001b[39m","message":"Employee already exist."}
+{"level":"\u001b[31merror\u001b[39m","message":"   Employee already exist."}
+{"0":{"minLength":"Le prénom doit contenir au moins 3 caractères"},"level":"error","message":"error de validation"}
+{"level":"error","message":[{"minLength":"Le prénom doit contenir au moins 3 caractères"},{"minLength":"Le nom doit contenir au moins 3 caractères"}]}
+{"level":"error","message":"Employee already exist."}
+2023-11-16T11:47:47.957Z [[31merror[39m]: Employee already exist.
+undefined
+undefined
+undefined
+undefined
