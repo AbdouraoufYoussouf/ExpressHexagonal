@@ -1,0 +1,117 @@
+project-root/
+│
+├── src/
+│   ├── application/
+│   │   ├── controllers/
+│   │   │   ├── employeeController/
+│   │   │   │   ├── EmployeeController.ts
+│   │   │   │   └── EmployeeController.spec.ts  # Tests unitaires
+│   │   │   ├── departmentController/
+│   │   │   │   ├── DepartmentController.ts
+│   │   │   │   └── DepartmentController.spec.ts  # Tests unitaires
+│   │   │   ├── authController/
+│   │   │   │   ├── AuthController.ts
+│   │   │   │   └── AuthController.spec.ts  # Tests unitaires
+│   │   │   └── ...
+│   │   │
+│   ├── domain/
+│   │   ├── models/
+│   │   │   ├── Employee.ts
+│   │   │   └── Department.ts
+│   │   ├── abstraction/
+│   │   │   ├── IEmployeeRepository.ts
+│   │   │   ├── IDepartmentRepository.ts
+│   │   │   ├── IEmployeeService.ts
+│   │   │   └── IDepartmentService.ts
+│   │   ├── dtos/
+│   │   │   ├── EmployeeDto.ts
+│   │   │   └── DepartmentDto.ts
+│   │   ├── services/
+│   │   │   ├── EmployeeService.ts
+│   │   │   └── DepartmentService.ts
+│   │   └── ...
+│   │
+│   ├── infrastructure/
+│   │   ├── persistence/
+│   │   │   ├── prisma/
+│   │   │   │   ├── PrismaClient.ts
+│   │   │   │   ├── EmployeeRepositoryPrisma.ts
+│   │   │   │   └── DepartmentRepositoryPrisma.ts
+│   │   │   └── ...
+│   │   ├── config/
+│   │   │   ├── passport.ts
+│   │   │   └── prisma.ts
+│   │   ├── utils/
+│   │   ├── decorators/
+│   │   │   └── Authorized.ts
+│   │   └── middlewares/
+│   │       ├── AuthenticationMiddleware.ts
+│   │       └── AuthenticationMiddleware.spec.ts  # Tests unitaires
+│   │── server.ts
+│   └── ...
+│
+├── tests/
+│   ├── unit/
+│   │   ├── application/
+│   │   ├── domain/
+│   │   ├── infrastructure/
+│   │   └── ...
+│   ├── integration/
+│   └── ...
+│
+├── scripts/
+├── docs/
+├── .env.example
+├── .gitignore
+├── package.json
+├── tsconfig.json
+├── jest.config.js
+└── README.md
+
+
+
+Scripts pour la creation du projet 
+
+Pour organiser correctement les dépendances et supprimer les doublons, vous pouvez exécuter les commandes suivantes dans l'ordre pour installer et organiser les bibliothèques :
+
+# Initialiser un projet Node.js avec npm
+npm init -y
+
+# Installer les dépendances principales
+npm install express typescript ts-node @prisma/client @decorators/express reflect-metadata zod winston module-alias --save
+
+# Installer les dépendances pour Express et les contrôleurs de routage
+npm install routing-controllers body-parser multer class-transformer class-validator --save
+
+# Installer les types pour TypeScript
+npm install -D @types/express @types/body-parser @types/multer @types/node
+
+# Installer nodemon pour le rechargement automatique du serveur en développement
+npm install -D nodemon
+
+Ces commandes vont installer les dépendances nécessaires pour votre projet et organiser les bibliothèques de manière à éviter les doublons.
+
+
+Creation de la structure du project
+mkdir -p src/{application/{middleware,decorators,controllers/{employee,departement,auth}},domain/{models,abstraction,dtos,services},infrastructure/persistence/prisma,config,utils,tests/{unit/{application,domain,infrastructure},integration}}
+
+creation des fichier du projet
+touch src/application/controllers/employee/EmployeeController.ts
+touch src/application/web/controllers/AuthController.ts
+touch src/application/web/middleware/AuthenticationMiddleware.ts
+touch src/application/web/decorators/Authorized.ts
+touch src/domain/models/Employee.ts
+touch src/domain/abstraction/IEmployeeRepository.ts
+touch src/domain/dtos/EmployeeDto.ts
+touch src/domain/services/EmployeeService.ts
+touch src/infrastructure/persistence/prisma/PrismaClient.ts
+touch src/infrastructure/persistence/prisma/EmployeeRepositoryPrisma.ts
+touch src/config/passport.ts
+touch src/config/prisma.ts
+touch src/utils/index.ts
+
+creation de la base des données 
+si le dossier qui contient prisma.shema n'est pas dans la racine il faut ajouter l'option --shema. et à chaque fois que les models dans prisma.shema sont modifier il faut refaire les meme operations.
+
+prisma generate --schema=./src/infrastructure/persistence/prisma/schema.prisma
+ prisma db push 

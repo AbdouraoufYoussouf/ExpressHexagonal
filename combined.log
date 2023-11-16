@@ -1,0 +1,6 @@
+{"level":"info","message":"[2023-11-15T10:32:08.837Z] GET /api/employees"}
+{"level":"info","message":"[2023-11-15T10:34:32.608Z] PUT /api/employees"}
+{"level":"info","message":"[2023-11-15T12:21:18.408Z] GET /api/employees/"}
+{"level":"info","message":"[2023-11-15T12:22:20.250Z] PUT /api/employees/"}
+{"level":"info","message":"[2023-11-15T12:22:59.925Z] PUT /api/employees/65549b68fe92444d4b572ea1"}
+{"level":"info","message":"[2023-11-15T12:23:29.677Z] GET /api/employees"}

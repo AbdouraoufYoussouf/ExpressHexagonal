@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./",
+    "paths": {
+      "@application/*": ["src/application/*"],
+      "@domain/*": ["src/domain/*"],
+      "@infrastructure/*": ["src/infrastructure/*"],
+    },
+  
+    "strict": true,
+    "sourceMap": true,
+    "lib": [
+      "esnext"
+    ],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": [
+      "@types/node",
+      "@prisma/client",
+      "node",
+      "express"
+    ],
+    "resolveJsonModule": true,
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+},
+}
